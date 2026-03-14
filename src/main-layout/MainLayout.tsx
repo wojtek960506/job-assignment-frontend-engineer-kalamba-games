@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import "./MainLayout.css";
 import { Topbar } from "./topbar";
+import { Footer } from "./footer";
 
 type MainLayoutProps = { children: ReactNode }
 
@@ -9,6 +10,7 @@ export const MainLayout = ({ children }: MainLayoutProps): JSX.Element => {
     <div className="main-layout">
       <Topbar />
       {children}
+      <Footer />
     </div>
   )
 }
