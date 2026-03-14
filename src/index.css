@@ -1,0 +1,47 @@
+/* Define global variables */
+:root {
+  /* Colors */
+  --primary: #33aa44;
+  --primary-hover: #2b8e3a;
+  --primary-active: #237630;
+  --primary-dark: #237630;
+  --primary-light: #7dd88b;
+  --danger: #b85c5c;
+  --danger-light: #d7a3a3;
+  --secondary: #ccc;
+  --secondary-hover: #b3b3b3;
+  --secondary-border: #adadad;
+  --text: #373a3c;
+  --text-muted: #999;
+  --text-light: #aaa;
+  --text-lighter: #bbb;
+  --text-very-light: #eee;
+  --text-disabled: #818a91;
+  --border: #bbb;
+  --bg-light: #ddd;  
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base typography */
+html {
+  font-family: Source Sans Pro, sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  scroll-behavior: smooth;
+}
+
+button, input {
+  font: inherit;
+  line-height: inherit;
+}
+
+body {
+  background-color: #fdfdfd;
+  color: var(--text);
+  height: 100vh;
+}
