@@ -27,7 +27,7 @@ export const Login = (): JSX.Element => {
       setIsError(true);
     }
   }
-  
+
   return (
     <div className="login">
       <h1 className="login-title">Sign in</h1>
@@ -47,7 +47,7 @@ export const Login = (): JSX.Element => {
           onChange={(e) => setPassword(e.target.value)}
           type="password"  
         />
-        {isError && <p>Invalid credentials</p>}
+        {isError && <p className="login-error">Invalid credentials</p>}
         <Button
           type="submit"
           variant="primary"

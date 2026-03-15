@@ -4,7 +4,7 @@ import "./Topbar.css";
 import { useAuth } from "login/context";
 
 export const Topbar = (): JSX.Element => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, resetAuthToken } = useAuth();
 
   return (
     <header className="main-layout-topbar">
@@ -12,7 +12,7 @@ export const Topbar = (): JSX.Element => {
       <nav className="main-layout-nav">
         <TopbarNavLink title="Home" to="/" />
         {isAuthenticated 
-          ? <Button onClick={() => console.log("log out")} variant="primary">Log out</Button>
+          ? <Button onClick={() => resetAuthToken()} variant="primary">Log out</Button>
           : <TopbarNavLink title="Sign in" to="/login" buttonStyle/>}
 
       </nav>
