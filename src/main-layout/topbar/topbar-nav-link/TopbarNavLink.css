@@ -1,0 +1,32 @@
+.nav-link {
+  text-decoration: none;
+  padding: 0.5rem 0.5rem;
+  color: var(--text-muted);
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link-active, .nav-link-active:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.nav-link-button {
+  text-decoration: none;
+  border: none;
+  padding: 0.5rem 0.5rem;
+  background-color: var(--primary);
+  color: var(--secondary);
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.nav-link-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.nav-link-button-active, .nav-link-button-active:hover {
+  background-color: var(--primary-dark);
+}

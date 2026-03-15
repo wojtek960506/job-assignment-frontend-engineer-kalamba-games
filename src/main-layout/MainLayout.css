@@ -1,0 +1,31 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: auto;
+}
+
+/* TODO add some postcss custom-media variables to centralize values of those widths  */ 
+@media (min-width: 544px) {
+  .main-layout {
+    max-width: 504px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-layout {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .main-layout {
+    max-width: 940px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-layout {
+    max-width: 1140px;
+  }
+}
