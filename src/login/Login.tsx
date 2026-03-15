@@ -2,18 +2,30 @@ import { FormEvent, useState } from "react";
 import { Input } from "ui/input";
 import "./Login.css";
 import { Button } from "ui/button";
+import { authenticateUser } from "api/usersApi";
+import { useAuth } from "./context";
 
 export const Login = (): JSX.Element => {
   
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // alice@example.com I_<3-R0ber7
+  // bob@example.com   4L1ce-I5 mY_li3f
 
-  const handleSubmit = (e: FormEvent) => {
+  const [email, setEmail] = useState("alice@example.com");
+  const [password, setPassword] = useState("I_<3-R0ber7");
+  const [isError, setIsError] = useState(false);
+
+  const { setAuthToken } = useAuth();
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    console.log('log in')
-    console.log(email);
-    console.log(password);
+    try {
+      const user = await authenticateUser({ email, password });
+      setAuthToken(user.token);
+      setIsError(false);
+    } catch (error) {
+      setIsError(true);
+    }
   }
   
   return (
@@ -35,6 +47,7 @@ export const Login = (): JSX.Element => {
           onChange={(e) => setPassword(e.target.value)}
           type="password"  
         />
+        {isError && <p>Invalid credentials</p>}
         <Button
           type="submit"
           variant="primary"
