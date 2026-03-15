@@ -3,6 +3,15 @@
   flex-direction: column;
   height: 100vh;
   margin: auto;
+  max-width: 500px;
+}
+
+.main-layout-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  flex: 1;
 }
 
 /* TODO add some postcss custom-media variables to centralize values of those widths  */ 

@@ -9,7 +9,7 @@ export const MainLayout = ({ children }: MainLayoutProps): JSX.Element => {
   return (
     <div className="main-layout">
       <Topbar />
-      {children}
+      <div className="main-layout-content">{children}</div>
       <Footer />
     </div>
   )
