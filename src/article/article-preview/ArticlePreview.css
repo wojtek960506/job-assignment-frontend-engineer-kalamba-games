@@ -1,0 +1,17 @@
+.article-preview {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--text-lighter);
+  padding: 0.5rem 0;
+}
+
+.article-preview:first-child {
+  padding-top: 0;
+}
+
+.article-preview:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+

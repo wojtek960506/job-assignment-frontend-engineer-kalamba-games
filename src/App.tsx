@@ -1,7 +1,7 @@
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 import Article from "./Article";
-import ArticleList from "./ArticleList";
+import { ArticleList } from "./article";
 import { Login } from "./login";
 import Profile from "./Profile";
 import { MainLayout } from "./main-layout";
