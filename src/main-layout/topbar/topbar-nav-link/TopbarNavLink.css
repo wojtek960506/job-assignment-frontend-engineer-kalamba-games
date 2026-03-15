@@ -1,6 +1,6 @@
 .nav-link {
   text-decoration: none;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0.75rem;
   color: var(--text-muted);
 }
 
@@ -16,7 +16,7 @@
 .nav-link-button {
   text-decoration: none;
   border: none;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0.75rem;
   background-color: var(--primary);
   color: var(--secondary);
   border-radius: 0.75rem;
