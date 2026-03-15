@@ -18,7 +18,7 @@
   border: none;
   padding: 0.5rem 0.5rem;
   background-color: var(--primary);
-  color: var(--text-very-light);
+  color: var(--secondary);
   border-radius: 0.75rem;
   cursor: pointer;
 }

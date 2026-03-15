@@ -1,0 +1,31 @@
+.button {
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.primary-button {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.secondary-button {
+  background-color: var(--secondary);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.primary-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.secondary-button:hover {
+  background-color: var(--secondary-hover);
+}

@@ -5,6 +5,7 @@
   margin: auto;
 }
 
+/* TODO add some postcss custom-media variables to centralize values of those widths  */ 
 @media (min-width: 544px) {
   .main-layout {
     max-width: 504px;
