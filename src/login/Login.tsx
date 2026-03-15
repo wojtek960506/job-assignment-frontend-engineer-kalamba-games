@@ -26,8 +26,8 @@ export const Login = (): JSX.Element => {
 
     try {
       const user = await authenticateUser({ email, password });
-      setAuthToken(user.token);
       setIsError(false);
+      setAuthToken(user.token);
     } catch (error) {
       setIsError(true);
     }

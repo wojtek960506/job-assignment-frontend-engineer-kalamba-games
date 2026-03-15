@@ -1,26 +1,36 @@
 import { Link } from "react-router-dom";
 import { ArticlePreviewProps } from "../types";
 import "./ArticlePreviewHeader.css";
+import { FavoriteArticleButton } from "article/favorite-article-button";
+import { FiUser } from "react-icons/fi";
+
 
 export const ArticlePreviewHeader = ({ article }: ArticlePreviewProps): JSX.Element => {
+
+  const { author, createdAt } = article;
 
   return (
     <header className="article-preview-header">
       <div className="article-preview-info">
-        <div className="article-author-image">{article.author.image}</div>
+        <Link
+          className="article-author-image"
+          to={`/profile/${author.username}`}  
+        >
+          <FiUser size={25}/>
+        </Link>
         <div className="article-preview-details">
           <Link
             className="article-author-username"
-            to={`/profile/${article.author.username}`}
+            to={`/profile/${author.username}`}
           >
-            {article.author.username}
+            {author.username}
           </Link>
           <time className="article-preview-created-at">
-            {new Date(article.createdAt).toLocaleDateString()}
+            {new Date(createdAt).toLocaleDateString()}
           </time>
         </div>
       </div>
-      <div className="article-favorite-button">{article.favoritesCount}</div>
+      <FavoriteArticleButton article={article} />
     </header>
   )
 }

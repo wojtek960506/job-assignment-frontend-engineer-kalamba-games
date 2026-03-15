@@ -17,6 +17,16 @@
   width: 2.5rem;
   border: 1px solid var(--primary);
   border-radius: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+
+.article-author-image:hover {
+  color: var(--secondary);
+  background-color: var(--primary);
 }
 
 .article-preview-details {

@@ -10,6 +10,7 @@ export const ArticleList = (): JSX.Element => {
   if (isError) return <div>Error while loading articles: {error}</div>
 
   return (
+    // TODO it might make sense to create ArticleContext to avoid prop drilling
     <ul style={{ padding: "1rem 3rem" }}>
       {data?.map(article => (<ArticlePreview key={article.slug} article={article} />))}
     </ul>
