@@ -2,7 +2,7 @@ import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 import Article from "./Article";
 import ArticleList from "./ArticleList";
-import LoginRegister from "./Login";
+import { Login } from "./login";
 import Logout from "./Logout";
 import Profile from "./Profile";
 import { MainLayout } from "./main-layout";
@@ -12,7 +12,7 @@ function App(): JSX.Element {
     <Router>
       <MainLayout>
         <Switch>
-          <Route path="/login" exact component={LoginRegister} />
+          <Route path="/login" exact component={Login} />
           <Route path="/logout" exact component={Logout} />
           <Route path="/profile/:username" exact component={Profile} />
           <Route path="/profile/:username/favorites" exact component={Profile} />
