@@ -2,9 +2,17 @@ import { Button } from "ui/button";
 import { TopbarNavLink } from "./topbar-nav-link";
 import "./Topbar.css";
 import { useAuth } from "login/context";
+import { useQueryClient } from "react-query";
 
 export const Topbar = (): JSX.Element => {
   const { isAuthenticated, resetAuthToken } = useAuth();
+  const queryClient = useQueryClient();
+
+  const handleLogout = () => {
+    resetAuthToken();
+    // resets queries to initial state and refetches
+    queryClient.resetQueries();
+  }
 
   return (
     <header className="main-layout-topbar">
@@ -12,7 +20,7 @@ export const Topbar = (): JSX.Element => {
       <nav className="main-layout-nav">
         <TopbarNavLink title="Home" to="/" />
         {isAuthenticated 
-          ? <Button onClick={() => resetAuthToken()} variant="primary">Log out</Button>
+          ? <Button onClick={handleLogout} variant="primary">Log out</Button>
           : <TopbarNavLink title="Sign in" to="/login" buttonStyle/>}
 
       </nav>

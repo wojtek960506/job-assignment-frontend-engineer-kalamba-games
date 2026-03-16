@@ -1,0 +1,33 @@
+.article-preview {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--text-lighter);
+  padding: 1rem 0;
+}
+
+.article-preview:first-child {
+  padding-top: 0;
+}
+
+.article-preview:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.article-preview-link {
+  text-decoration: none;
+}
+
+.article-preview-link {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.article-preview-link:hover {
+  color: var(--primary);
+}
+
+.article-preview-link > p {
+  color: var(--text-muted);
+}

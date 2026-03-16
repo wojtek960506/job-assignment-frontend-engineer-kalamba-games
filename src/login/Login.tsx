@@ -2,7 +2,7 @@ import { FormEvent, useState } from "react";
 import { Input } from "ui/input";
 import "./Login.css";
 import { Button } from "ui/button";
-import { authenticateUser } from "api/usersApi";
+import { authenticateUser } from "api/users-api";
 import { useAuth } from "./context";
 
 export const Login = (): JSX.Element => {
@@ -10,19 +10,24 @@ export const Login = (): JSX.Element => {
   // alice@example.com I_<3-R0ber7
   // bob@example.com   4L1ce-I5 mY_li3f
 
+  // `useForm` with Zod validation might be use
+  // to have better control over values provided in login form
   const [email, setEmail] = useState("alice@example.com");
   const [password, setPassword] = useState("I_<3-R0ber7");
   const [isError, setIsError] = useState(false);
 
   const { setAuthToken } = useAuth();
 
+  // TODO save full info about user (not just authToken)
+  // which might be used for example for checking authenticated user profile
+  // in that case there will be no need to do additional request with another endpoint
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
       const user = await authenticateUser({ email, password });
-      setAuthToken(user.token);
       setIsError(false);
+      setAuthToken(user.token);
     } catch (error) {
       setIsError(true);
     }
