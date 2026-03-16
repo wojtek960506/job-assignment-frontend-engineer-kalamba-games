@@ -1,5 +1,4 @@
 .follow-button {
-  align-self: flex-end;
   display: flex;
   gap: 0.5rem;
   align-items: center;
