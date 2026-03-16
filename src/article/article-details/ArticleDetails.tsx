@@ -4,6 +4,7 @@ import { UseQueryResult } from "react-query";
 import { ArticleInfo } from "article/article-info";
 import { FollowProfileButton } from "profile/follow-profile-button";
 import { FavoriteArticleButton } from "article/favorite-article-button";
+import ReactMarkdown from "react-markdown";
 
 type ArticleDetailsProps = {
   queryResult: UseQueryResult<IArticle, unknown>;
@@ -25,14 +26,14 @@ export const ArticleDetails = ({ queryResult }: ArticleDetailsProps): JSX.Elemen
       <header className="article-header">
         <h1 className="article-title">{title}</h1>
 
-        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+        <div className="article-controls">
           <ArticleInfo article={data} />
           <FollowProfileButton profile={author} slug={slug} />
           <FavoriteArticleButton article={data} hasText />
         </div>
       </header>
 
-      <div>{body}</div>
+      <div className="article-body"><ReactMarkdown>{body}</ReactMarkdown></div>
     </div>
   )
 }
