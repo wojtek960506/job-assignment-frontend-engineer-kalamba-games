@@ -1,12 +1,12 @@
 import { FormEvent, useState } from "react";
 import { Input } from "ui/input";
-import "./Login.css";
+import "./LoginPage.css";
 import { Button } from "ui/button";
 import { authenticateUser } from "api/users-api";
 import { useAuth } from "./context";
 import { useQueryClient } from "react-query";
 
-export const Login = (): JSX.Element => {
+export const LoginPage = (): JSX.Element => {
   
   // alice@example.com I_<3-R0ber7
   // bob@example.com   4L1ce-I5 mY_li3f
