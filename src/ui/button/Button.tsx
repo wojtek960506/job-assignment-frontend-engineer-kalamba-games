@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { ComponentProps, forwardRef } from "react";
 import "./Button.css";
 
-type ButtonVariant = "primary" | "secondary";
+type ButtonVariant = "primary" | "secondary" | "muted-primary" | "muted-secondary";
 
 type ButtonProps = ComponentProps<"button"> & { variant?: ButtonVariant }
 
@@ -12,11 +12,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     let variantClassName = '';
 
     switch (variant) {
-      case "primary":
-        variantClassName = "primary-button"
+      case "muted-primary":
+        variantClassName = "muted-primary-button";
+        break;
+      case "muted-secondary":
+        variantClassName = "muted-secondary-button";
         break;
       case "secondary":
         variantClassName = "secondary-button";
+        break;
+      case "primary":
+      default:
+        variantClassName = "primary-button"
         break;
     }
 

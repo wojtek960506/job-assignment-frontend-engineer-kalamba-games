@@ -1,5 +1,5 @@
 .not-favorited-button:hover {
   background-color: var(--primary) !important;
-  color: var(--secondary);
-  border-color: var(--secondary);
+  color: var(--bg-main);
+  border-color: var(--bg-main);
 }
