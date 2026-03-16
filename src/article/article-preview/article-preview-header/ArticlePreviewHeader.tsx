@@ -13,7 +13,7 @@ export const ArticlePreviewHeader = ({ article }: ArticlePreviewProps): JSX.Elem
       <div className="article-preview-info">
         <Link
           className="article-author-image"
-          to={`/profile/${author.username}`}  
+          to={`/profile/${author.username}`}
         >
           <ProfileImage imageURL={author.image} placeholderSize={25} /> 
         </Link>

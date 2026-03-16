@@ -9,9 +9,10 @@ export const Topbar = (): JSX.Element => {
   const queryClient = useQueryClient();
 
   const handleLogout = () => {
-    resetAuthToken();
     // resets queries to initial state and refetches
     queryClient.resetQueries();
+    queryClient.removeQueries();
+    resetAuthToken();
   }
 
   return (

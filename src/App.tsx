@@ -12,10 +12,11 @@ function App(): JSX.Element {
     <Router>
       <MainLayout>
         <Switch>
+          <Route exact path="/" component={ArticleListPage} />
           <PublicRoute path="/login" component={Login} />
-          <Route path="/profile/:username" exact component={ProfilePage} />
-          <Route path="/:slug" exact component={Article} />
-          <Route path="/" component={ArticleListPage} />
+          <Route path="/profile/:username" component={ProfilePage} />
+          <Route path="/:slug" component={Article} />
+          
         </Switch>
       </MainLayout>
     </Router>

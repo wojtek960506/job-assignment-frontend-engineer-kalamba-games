@@ -4,6 +4,7 @@ import "./Login.css";
 import { Button } from "ui/button";
 import { authenticateUser } from "api/users-api";
 import { useAuth } from "./context";
+import { useQueryClient } from "react-query";
 
 export const Login = (): JSX.Element => {
   
@@ -17,6 +18,7 @@ export const Login = (): JSX.Element => {
   const [isError, setIsError] = useState(false);
 
   const { setAuthToken } = useAuth();
+  const queryClient = useQueryClient();
 
   // TODO save full info about user (not just authToken)
   // which might be used for example for checking authenticated user profile
@@ -27,6 +29,10 @@ export const Login = (): JSX.Element => {
     try {
       const user = await authenticateUser({ email, password });
       setIsError(false);
+      // as we have some public pages which have data which is updated after logging in
+      // to avoid flickering of favorited button I clear cached data
+      queryClient.resetQueries();
+      queryClient.removeQueries();
       setAuthToken(user.token);
     } catch (error) {
       setIsError(true);
