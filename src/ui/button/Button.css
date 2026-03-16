@@ -12,20 +12,40 @@
 
 .primary-button {
   background-color: var(--primary);
-  color: var(--secondary);
-  border-color: var(--secondary);
-}
-
-.secondary-button {
-  background-color: var(--secondary);
-  color: var(--primary);
-  border-color: var(--primary);
+  color: var(--bg-main);
+  border-color: var(--bg-main);
 }
 
 .primary-button:hover {
   background-color: var(--primary-hover);
 }
 
+.secondary-button {
+  background-color: var(--bg-main);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
 .secondary-button:hover {
+  background-color: var(--secondary-hover);
+}
+
+.muted-primary-button {
+  background-color: var(--text-light);
+  color: var(--bg-main);
+  border-color: var(--bg-main);
+}
+
+.muted-primary-button:hover {
+  background-color: var(--text-muted);
+}
+
+.muted-secondary-button {
+  background-color: var(--bg-main);
+  color: var(--text-light);
+  border-color: var(--text-light);
+}
+
+.muted-secondary-button:hover {
   background-color: var(--secondary-hover);
 }

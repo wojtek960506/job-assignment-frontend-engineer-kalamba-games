@@ -1,0 +1,23 @@
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  width: "100%";
+  padding: 1rem 3rem;
+  align-items: center;
+  border-bottom: 1px solid var(--text-lighter);
+}
+
+.profile-details-image {
+  border-radius: 6rem;
+  width: 6rem;
+  height: 6rem;
+  border: 3px solid var(--primary);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-details-bio {
+  color: var(--text-muted);
+}

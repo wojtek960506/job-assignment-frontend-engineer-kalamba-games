@@ -5,19 +5,15 @@
   --primary-hover: #2b8e3a;
   --primary-active: #237630;
   --primary-dark: #237630;
-  --primary-light: #7dd88b;
   --danger: #b85c5c;
   --danger-light: #d7a3a3;
-  --secondary: #eee;
-  --secondary-hover: #ddd;
-  --secondary-border: #adadad;
+  --secondary-hover: #eee;
   --text: #373a3c;
   --text-muted: #999;
   --text-light: #aaa;
   --text-lighter: #bbb;
   --text-disabled: #818a91;
-  --border: #bbb;
-  --bg-light: #ddd;  
+  --bg-main: #fdfdfd;
 }
 
 *, *::before, *::after {
@@ -40,7 +36,7 @@ button, input {
 }
 
 body {
-  background-color: #fdfdfd;
+  background-color: var(--bg-main);
   color: var(--text);
   height: 100vh;
 }

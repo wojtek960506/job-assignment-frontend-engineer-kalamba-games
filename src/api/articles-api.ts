@@ -20,8 +20,13 @@ export interface IArticle {
   tagList: string[],
 }
 
-export const getArticles = async (): Promise<IArticle[]> => {
-  const response = await api.get("/articles");
+export const getArticles = async (author?: string): Promise<IArticle[]> => {
+  
+  const params = {
+    ...(author && { author })
+  }
+
+  const response = await api.get("/articles", { params });
   return response.data["articles"]
 }
 
