@@ -2,9 +2,7 @@ import { IProfile } from "api/profiles-api";
 import { ProfileImage } from "profile/profile-image";
 import { UseQueryResult } from "react-query";
 import "./ProfileDetails.css";
-import { Button } from "ui/button";
-import { FaPlus } from "react-icons/fa";
-import classNames from "classnames";
+import { FollowProfileButton } from "profile/follow-profile-button";
 
 type ProfileDetailsProps = {
   queryResult: UseQueryResult<IProfile, unknown>;
@@ -19,7 +17,7 @@ export const ProfileDetails = ({ queryResult }: ProfileDetailsProps): JSX.Elemen
 
   if (!data) return <div>No details of profile</div>
 
-  const { following, image, bio, username } = data;
+  const { image, bio, username } = data;
 
   // const someWorkingImageURL = "https://i.pravatar.cc/150?img=3"
 
@@ -30,17 +28,7 @@ export const ProfileDetails = ({ queryResult }: ProfileDetailsProps): JSX.Elemen
       </div>
       <h1 style={{fontSize: "1.75rem"}}>{username}</h1>
       <p className="profile-details-bio">{bio}</p>
-      <Button
-        className={classNames(
-          "follow-button",
-          following ? "" : "not-following-button",
-        )}
-        
-        variant={following ? "muted-primary" : "muted-secondary"}
-      >
-        <FaPlus />
-        {`${following ? "Unfollow" : "Follow"} ${username}`}
-      </Button>
+      <FollowProfileButton profile={data} />
     </div>
   )
 }
