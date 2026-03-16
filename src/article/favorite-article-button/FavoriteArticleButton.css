@@ -3,3 +3,10 @@
   color: var(--bg-main);
   border-color: var(--bg-main);
 }
+
+.favorite-button {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+}

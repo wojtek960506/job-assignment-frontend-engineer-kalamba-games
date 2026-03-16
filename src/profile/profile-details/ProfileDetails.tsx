@@ -28,7 +28,7 @@ export const ProfileDetails = ({ queryResult }: ProfileDetailsProps): JSX.Elemen
       </div>
       <h1 style={{fontSize: "1.75rem"}}>{username}</h1>
       <p className="profile-details-bio">{bio}</p>
-      <FollowProfileButton profile={data} />
+      <div style={{ alignSelf: "end" }}><FollowProfileButton profile={data} /></div>
     </div>
   )
 }

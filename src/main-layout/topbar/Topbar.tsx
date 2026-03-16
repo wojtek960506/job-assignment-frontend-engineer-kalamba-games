@@ -3,19 +3,16 @@ import { TopbarNavLink } from "./topbar-nav-link";
 import "./Topbar.css";
 import { useAuth } from "login/context";
 import { useQueryClient } from "react-query";
-import { useHistory } from "react-router-dom";
 
 export const Topbar = (): JSX.Element => {
   const { isAuthenticated, resetAuthToken } = useAuth();
   const queryClient = useQueryClient();
-  const history = useHistory();
 
   const handleLogout = () => {
     // resets queries to initial state and refetches
     queryClient.resetQueries();
     queryClient.removeQueries();
     resetAuthToken();
-    history.push("/");
   }
 
   return (

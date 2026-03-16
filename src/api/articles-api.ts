@@ -30,6 +30,11 @@ export const getArticles = async (author?: string): Promise<IArticle[]> => {
   return response.data["articles"]
 }
 
+export const getArticle = async (slug: string): Promise<IArticle> => {
+  const response = await api.get(`/articles/${slug}`);
+  return response.data["article"];
+}
+
 export const favoriteArticle = async (slug: string): Promise<IArticle> => {
   const response = await api.post(`/articles/${slug}/favorite`);
   return response.data["article"];

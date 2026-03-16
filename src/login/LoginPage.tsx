@@ -1,17 +1,17 @@
 import { FormEvent, useState } from "react";
 import { Input } from "ui/input";
-import "./Login.css";
+import "./LoginPage.css";
 import { Button } from "ui/button";
 import { authenticateUser } from "api/users-api";
 import { useAuth } from "./context";
 import { useQueryClient } from "react-query";
 
-export const Login = (): JSX.Element => {
+export const LoginPage = (): JSX.Element => {
   
   // alice@example.com I_<3-R0ber7
   // bob@example.com   4L1ce-I5 mY_li3f
 
-  // `useForm` with Zod validation might be use
+  // TODO `useForm` with Zod validation might be use
   // to have better control over values provided in login form
   const [email, setEmail] = useState("alice@example.com");
   const [password, setPassword] = useState("I_<3-R0ber7");
@@ -29,8 +29,8 @@ export const Login = (): JSX.Element => {
     try {
       const user = await authenticateUser({ email, password });
       setIsError(false);
-      // as we have some public pages which have data which is updated after logging in
-      // to avoid flickering of favorited button I clear cached data
+      // as there are some public pages which have data which is updated after
+      // logging in to avoid flickering of favorited button cached data is cleared
       queryClient.resetQueries();
       queryClient.removeQueries();
       setAuthToken(user.token);
@@ -40,7 +40,7 @@ export const Login = (): JSX.Element => {
   }
 
   return (
-    <div className="login">
+    <div className="login-page">
       <h1 className="login-title">Sign in</h1>
       <form
         className="login-form"

@@ -7,7 +7,15 @@ import { useAuth } from "login/context";
 import { useHistory } from "react-router-dom";
 import { useMutation, useQueryClient } from "react-query";
 
-export const FollowProfileButton = ({ profile }: { profile: IProfile }): JSX.Element => {
+type FollowProfileButtonProps = {
+  profile: IProfile,
+  slug?: string,
+}
+
+export const FollowProfileButton = ({
+  profile,
+  slug,
+}: FollowProfileButtonProps): JSX.Element => {
 
   const { following, username } = profile;
   
@@ -15,15 +23,19 @@ export const FollowProfileButton = ({ profile }: { profile: IProfile }): JSX.Ele
   const history = useHistory();
   const queryClient = useQueryClient();
 
+  // this button can be used in both Article page and Profile page
+  // so both queries must be invalidated to keep the data up to date
   const followMutation = useMutation(followProfile, {
       onSuccess: () => {
         queryClient.invalidateQueries(["profile", username]);
+        if (slug) queryClient.invalidateQueries(["article", slug]);
       }
     });
   
     const unfollowMutation = useMutation(unfollowProfile, {
       onSuccess: () => {
         queryClient.invalidateQueries(["profile", username]);
+        if (slug) queryClient.invalidateQueries(["article", slug]);
       }
     });
 

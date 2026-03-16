@@ -21,9 +21,9 @@ export const ProfilePage = (): JSX.Element => {
   )
   
   return (
-    <div>
+    <>
       <ProfileDetails queryResult={queryResultProfile} />
       <ArticleList queryResult={queryResultArticles} />
-    </div>
+    </>
   )
 }
