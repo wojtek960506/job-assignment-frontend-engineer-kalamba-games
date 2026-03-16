@@ -15,6 +15,8 @@ export const ArticleList = ({ queryResult }: ArticleListProps): JSX.Element => {
 
   if (!data || data.length === 0) return <div>No articles</div>
   
+  // TODO context for article should be created to avoid prop drilling in the components
+  // nested in each of ArticlePreview in the list
   return (
     <ul style={{ padding: "1rem 3rem" }}>
       {data.map(article => (<ArticlePreview key={article.slug} article={article} />))}

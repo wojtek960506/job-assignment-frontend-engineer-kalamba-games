@@ -19,8 +19,8 @@ export const ProfileDetails = ({ queryResult }: ProfileDetailsProps): JSX.Elemen
 
   const { image, bio, username } = data;
 
-  // const someWorkingImageURL = "https://i.pravatar.cc/150?img=3"
-
+  // TODO context for profile should be created to avoid prop drilling in the components
+  // nested in ProfileDetails
   return (
     <div className="profile-details">
       <div className="profile-details-image">
