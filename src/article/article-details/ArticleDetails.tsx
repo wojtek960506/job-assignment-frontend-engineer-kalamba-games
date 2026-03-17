@@ -20,6 +20,8 @@ export const ArticleDetails = ({ queryResult }: ArticleDetailsProps): JSX.Elemen
   
   const { title, author, slug, body } = data;
 
+  // TODO context for article should be created to avoid prop drilling in the components
+  // nested in ArticleDetails
   return (
     <div className="article-details">
       

@@ -7,15 +7,13 @@ import { useAuth } from "./context";
 import { useQueryClient } from "react-query";
 
 export const LoginPage = (): JSX.Element => {
-  
-  // alice@example.com I_<3-R0ber7
-  // bob@example.com   4L1ce-I5 mY_li3f
 
   // TODO `useForm` with Zod validation might be use
   // to have better control over values provided in login form
-  const [email, setEmail] = useState("alice@example.com");
-  const [password, setPassword] = useState("I_<3-R0ber7");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { setAuthToken } = useAuth();
   const queryClient = useQueryClient();
@@ -27,6 +25,7 @@ export const LoginPage = (): JSX.Element => {
     e.preventDefault();
 
     try {
+      setIsLoading(true);
       const user = await authenticateUser({ email, password });
       setIsError(false);
       // as there are some public pages which have data which is updated after
@@ -36,6 +35,8 @@ export const LoginPage = (): JSX.Element => {
       setAuthToken(user.token);
     } catch (error) {
       setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -50,19 +51,27 @@ export const LoginPage = (): JSX.Element => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          type="text"  
+          type="text"
+          data-testid="email-input"
+          disabled={isLoading}
         />
         <Input
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          type="password"  
+          type="password"
+          data-testid="password-input"
+          disabled={isLoading}
         />
-        {isError && <p className="login-error">Invalid credentials</p>}
+        {isError && (
+          <p data-testid="login-error" className="login-error">Invalid credentials</p>
+        )}
         <Button
           type="submit"
           variant="primary"
           className="sign-in-button"
+          data-testid="sign-in-button"
+          disabled={isLoading}
         >
           Sign in
         </Button>
