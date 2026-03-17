@@ -63,7 +63,9 @@ export const LoginPage = (): JSX.Element => {
           data-testid="password-input"
           disabled={isLoading}
         />
-        {isError && <p className="login-error">Invalid credentials</p>}
+        {isError && (
+          <p data-testid="login-error" className="login-error">Invalid credentials</p>
+        )}
         <Button
           type="submit"
           variant="primary"
